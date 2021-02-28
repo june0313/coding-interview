@@ -52,6 +52,42 @@ class MatrixTest {
         });
     }
 
+    @Test
+    void testSelf_2x2() {
+        int[][] matrix = {
+                {1, 1},
+                {2, 2}
+        };
+
+        sut.rotateSelf(matrix);
+
+        assertArrayEquals(matrix, new int[][]{
+                {2, 1},
+                {2, 1}
+        });
+    }
+
+    @Test
+    void testSelf_5x5() {
+        int[][] matrix = {
+                {1, 1, 1, 1, 1},
+                {2, 2, 2, 2, 2},
+                {3, 3, 3, 3, 3},
+                {4, 4, 4, 4, 4},
+                {5, 5, 5, 5, 5},
+        };
+
+        sut.rotateSelf(matrix);
+
+        assertArrayEquals(matrix, new int[][]{
+                {5, 4, 3, 2, 1},
+                {5, 4, 3, 2, 1},
+                {5, 4, 3, 2, 1},
+                {5, 4, 3, 2, 1},
+                {5, 4, 3, 2, 1},
+        });
+    }
+
     private void assertEquals(int[][] original, int[][] expect) {
         assertArrayEquals(sut.rotate(original), expect);
     }

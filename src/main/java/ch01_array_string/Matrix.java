@@ -23,4 +23,30 @@ public class Matrix {
 
        return rotatedMatrix;
     }
+
+    public void rotateSelf(int[][] matrix) {
+        var size = matrix.length;
+
+        for (int i = 0; i < size; i++) {
+            for (int j = i; j < size - 1 - i; j++) {
+                int currentRow = i;
+                int currentColumn = j;
+                int currentValue = matrix[currentRow][currentColumn];
+
+                for (int k = 0; k < 4; k++) {
+                    var nextRow = currentColumn;
+                    var nextColumn = Math.abs(currentRow - (size - 1));
+                    var nextValue = matrix[nextRow][nextColumn];
+
+                    matrix[nextRow][nextColumn] = currentValue;
+
+                    currentRow = nextRow;
+                    currentColumn = nextColumn;
+                    currentValue = nextValue;
+                }
+
+                System.out.println();
+            }
+        }
+    }
 }
